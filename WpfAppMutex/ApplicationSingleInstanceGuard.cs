@@ -16,7 +16,7 @@ internal class ApplicationSingleInstanceGuard
         mutexSecurity.AddAccessRule(new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
             MutexRights.FullControl, AccessControlType.Allow));
 
-        _mutex = MutexAcl.Create(initiallyOwned: false, mutexName, out var newInstanceCreated, mutexSecurity);
+        _mutex = MutexAcl.Create(initiallyOwned: true, mutexName, out var newInstanceCreated, mutexSecurity);
 
         if (newInstanceCreated) return;
 
