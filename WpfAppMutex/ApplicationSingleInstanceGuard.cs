@@ -20,7 +20,7 @@ internal class ApplicationSingleInstanceGuard
 
         if (newInstanceCreated) return;
 
-        MessageBox.Show("Another instance of the application is already running.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show($"Another instance of the {id} application is already running.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         _mutex.Close();
         Environment.Exit(0);
     }
